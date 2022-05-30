@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class ToptalTest {
+public class DuckDuckTest {
     WebDriver driver;
 
 
@@ -23,7 +23,7 @@ public class ToptalTest {
             driver.get("https://duckduckgo.com/");
 
             WebElement searchTextbox = driver.findElement(By.id("search_form_input_homepage"));
-            searchTextbox.sendKeys("toptal");
+            searchTextbox.sendKeys("test");
             WebElement searchButton = driver.findElement(By.id("search_button_homepage"));
             searchButton.click();
 
@@ -36,7 +36,7 @@ public class ToptalTest {
 
             String currentURL = driver.getCurrentUrl();
             System.out.println(currentURL);
-            Assert.assertTrue("https://www.toptal.com/".equals(currentURL));
+            Assert.assertTrue("https://www.test.com/".equals(currentURL));
         } catch (Exception e) {
 
         } finally {

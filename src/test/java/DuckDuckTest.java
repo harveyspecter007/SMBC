@@ -12,7 +12,7 @@ public class DuckDuckTest {
 
 
     @Test
-    public void testTopTal() {
+    public void testDuckSearch() {
 
         try {
 

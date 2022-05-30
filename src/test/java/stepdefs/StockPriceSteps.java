@@ -4,11 +4,13 @@ import io.cucumber.java.After;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import lombok.extern.java.Log;
 import org.junit.Assert;
 import pages.InvestopediaPage;
 
 import static org.junit.Assert.fail;
 
+@Log
 public class StockPriceSteps {
 
     private InvestopediaPage investopediaPage;
@@ -34,7 +36,7 @@ public class StockPriceSteps {
         if (priceFromWeb < expPrice) {
             Assert.assertTrue(true);
         } else {
-            fail(String.format("Stock Price %d greater than Expected value %d ", priceFromWeb, expPrice));
+            fail(String.format("Stock Price %f greater than Expected value %f ", priceFromWeb, expPrice));
         }
 
     }

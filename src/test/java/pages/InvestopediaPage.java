@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import utils.ReadProperties;
 import utils.WebdriverUtil;
 
 public class InvestopediaPage extends WebdriverUtil {
@@ -16,14 +17,13 @@ public class InvestopediaPage extends WebdriverUtil {
     @FindBy(id = "onetrust-accept-btn-handler")
     private WebElement acceptButton;
 
-    private static final String PAGE_URL = "https://www.investopedia.com/markets/quote?tvwidgetsymbol=aapl";
-
     public InvestopediaPage() {
         PageFactory.initElements(webDriver, this);
     }
 
     public void goToInvestopedia() {
-        gotoURL(PAGE_URL);
+        ReadProperties readProperties = new ReadProperties();
+        gotoURL(readProperties.getProperty("page_url"));
         clickOnWebElement(acceptButton);
         webDriver.switchTo().frame(0);
 
@@ -38,8 +38,7 @@ public class InvestopediaPage extends WebdriverUtil {
         return Double.parseDouble(getTextFromElement(stockPrice));
     }
 
-    public void closeBrowser()
-    {
+    public void closeBrowser() {
         webDriver.quit();
     }
 
